@@ -1,0 +1,29 @@
+1.	מבנה
+קובץ ראשי (main) mainTaskFirst.py
+בתיקיה classes נמצאים קבצים: __init__.py וprocess.py (בסעיף 3 מפורט)
+בתיקיה Scanner נמצאים קבצים processList.txt ו Status_Log.txt. אם הם לא קיימים, אז התוכנית תיצור אותם.
+
+2.	ספריות
+לצורך תוכנית השתמשתי בספריות:
+os- כדי לעבוד עם קבצים כמו לשנות שם, מתי שינו קובץ וכו'.
+time and datetime-לעבודה עם זמן, כמו פקודה sleep(), לכתיבת מתי קרה בדיקה בקובץ processList.txt וכן'.
+re-כדי לעבוד עם regular expression, כלומר בעזרת re.match() לעשות חיפוש.
+sys/platform- התוכנית שלי משתמש בחלק מקומות פקודות שונות לLinux וWindows, לכן תוכנית בודק באיזה מערכת הוא עובד.
+subprocess/Popen, PIPE, check_output-לעבודה עם task manager  בWindows.
+psutil- לעבודה עם task manager  בLinux.
+
+3.	מחלקה ומבני הנתונים
+יצרתי את מחלקה Process לעבודה עם מבני נתונים. השדות שלו:
+__image=""             #image name
+__pid=0                #process id
+__session_name=""      #session_name
+__session_num=0        #session_num
+__mem_usage=0          #memory usage
+	יש צורך לציין שבLinux משתמשים רק ב 3 שדות: image,pid,session_name.
+במחלקה יש מתודות getting וsetting לכל שדה וגם  בנאי, מתודה השווה בין שתי object , get_type ןtoString.
+
+4.	דרך להתגונן מפני האקרים
+אחרי כל כתיבה בקבצים Status_Log.txt וprocessList.txt תוכנית שומרת את הזמן מתי זה קרה. לפני שאני מעדכן את הקובץ Status_Log.txt תוכנית בודקת האם היו שינוים נוספים, אם כן אז תוכנית כותבת בconsole ובStatus_Log.txt באיזה קובץ או קבצים  זה קרה. אם מחקו קבצים, אז תוכנית יוצרת אותם מחדש.
+
+5.	דבר מיוחד שהוספתי
+אם כבר קימיים קבצים Status_Log.txt וprocessList.txt התוכנית מוסיפה להם רישא של הזמן מתי התוכנית החלה לעבוד ויוצרת קבצים חדשים. לכן לא נמחקות דגימות ישנות ואין קבצים שמכילים בתוכם הרבה היסטוריה.
